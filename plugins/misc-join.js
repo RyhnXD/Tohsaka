@@ -13,5 +13,5 @@ let handler = async (m, { conn, text, isOwner }) => {
     if (expired) chats.expired = +new Date() + expired * 1000 * 60 * 60 * 24
 }
 handler.command = /^join$/i
-handler.premium = true
+handler.premium = false
 export default handler
