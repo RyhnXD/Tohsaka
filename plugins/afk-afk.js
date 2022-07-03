@@ -1,21 +1,16 @@
-import fs from 'fs'
-import fetch from 'node-fetch'
-let handler = async (m, { text }) => {
-let name = m.pushName || conn.getName(m.sender)
+let handler = (m, { text }) => {
+  let user = global.db.data.users[m.sender]
+  user.afk = + new Date
+  user.afkReason = text
+  let str = `╭──[ *NOW AFK !* ]──✧
+┆ *Nama* : ${conn.getName(m.sender)}
+┆ *Alasan* : ${text ? '' + text : ''}
+╰┅────★
+`.trim()
+conn.sendButton(m.chat, str, wm, 'Jangan Ganggu Ya !', 'iyaaaaa',m)
+conn.reply(str)
+}
 
-let user = global.db.data.users[m.sender]
-let wibu = `https://api.zacros.my.id/randomimg/loli`    
-let thumb = await(await fetch(wibu)).buffer()
-user.afk = + new Date
-user.afkReason = text
- conn.sendButton(m.chat, `${conn.getName(m.sender)} is now AFK${text ? ': ' + text : ''}`, wm, 'Jangan Ganggu Ya', 'Bilek', m,  { contextInfo: { externalAdReply: { showAdAttribution: true,
-        mediaUrl: "https://Instagram.com/bot_whangsaf",
-        mediaType: "FOTO",
-        description: "https://Instagram.com/bot_whangsaf", 
-        title: 'Simple Bot Esm',
-        body: wm,
-        thumbnail: thumb,
-        sourceUrl: sgc
     }
     } })
             }
