@@ -341,7 +341,7 @@ global.cmenub = '┊❀ ' //body
 global.cmenuf = '┗━═┅═━––––––๑\n' //footer
 global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ' //after
 global.pmenus = '❀' //pembatas menu selector
-
+global.webs = 'https://github.com/RyhnXD'
 global.htki = '––––––{' //hiasan title kiri
 global.htka = '}––––––' //hiasan title kanan
 global.lopr = 'Ⓟ'
