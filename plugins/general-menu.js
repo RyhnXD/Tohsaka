@@ -2,6 +2,7 @@
 //Johannes & Papah-Chan
 import jimp from 'jimp'
 import fs from 'fs'
+import fetch from 'node-fetch'
 import PhoneNumber from 'awesome-phonenumber'
 import moment from 'moment-timezone'
 
@@ -39,6 +40,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
         setTimeout(resolve, 1000)
       }) * 1000
     }
+    let res = await fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/neko.txt')
+    let txt = await res.text()
+    let arr = txt.split('\n')
+    let cita = arr[Math.floor(Math.random() * arr.length)]
+    let thumb = await(await fetch(cita)).buffer()
       let vn = './media/tante-tante.mp3'
     let uptime = clockString(_uptime)
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
@@ -93,15 +99,15 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     //conn.sendHydrated(m.chat, text.trim(), conn.getName(conn.user.jid), await genProfile(conn, m), 'https://youtube.com/channel/UC0hs_I8N3JntK5vO6KogavQ', 'YouTube', null, null, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
    // conn.sendMessage(m.chat, { video: { url: 'https://telegra.ph/file/c82d5c358495e8ef15916.mp4' }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: await conn.getName(conn.user.jid) , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
    conn.sendButton(m.chat, `*${wish()}, ${name} 👋*`, text.trim(), await genProfile(conn, m), [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], false, { quoted: fkon, contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaType: 'VIDEO',
-mediaUrl: 'https://www.kibrispdr.org/dwn/7/yotsuba-nakano-wallpaper.jpg',
-title: 'Simple Bot Esm',
-body: 'By Papah-Chan',
-thumbnail: fs.readFileSync("./thumbnail.jpg"),
-sourceUrl: 'https://chat.whatsapp.com/IW8emmdnFX3Jioe04wO1rf'
+    mediaUrl: "https://Instagram.com/bot_whangsaf",
+    mediaType: "VIDEO",
+    description: "https://Instagram.com/bot_whangsaf", 
+    title: 'ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜᴀɴ',
+    body: wm,
+    thumbnail: thumb,
+    sourceUrl: sig
 }
-  }
-})
+} })
 conn.sendFile(m.chat, vn, 'dj1.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
@@ -118,7 +124,7 @@ ptt: true
   }
 }
 handler.help = ['m']
-handler.tags = ['general']
+handler.tags = ['main']
 handler.alias = ['m']
 handler.command = /^(m)$/i
 handler.exp = 3
