@@ -100,7 +100,7 @@ global.dtu = 'ɪɴꜱᴛᴀɢʀᴀᴍ'
 global.urlnya = "https://www.instagram.com/bot_whangsaf"
 
 global.wait = '_sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs_'
-global.fkontak = 'wa.me/62895627514070
+global.fkontak = 'wa.me/62895627514070'
 //============= callButtons =============//
 global.dtc = 'ᴄʜᴀᴛ ᴏᴡɴᴇʀ'
 global.phn = 'wa.me/62895627514070'
