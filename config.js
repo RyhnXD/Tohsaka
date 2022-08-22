@@ -323,7 +323,7 @@ global.nameown = 'ʜᴀɴ'
 //image bot
 global.sgh = 'https://github.com/RyhnXD'
 global.logo = 'https://telegra.ph/file/04012986020f8fed15131.jpg'
-
+global.snh = 'nhentai.net/24674'
 /*=========== FAKE SIZE ===========*/
 global.fsizedoc = '99999999999999' // default 10TB
 global.fpagedoc = '999'
