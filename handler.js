@@ -334,53 +334,58 @@ export async function handler(chatUpdate) {
             if (typeof chat !== 'object')
                 global.db.data.chats[m.chat] = {}
             if (chat) {
-                if (!('isBanned' in chat))
-                    chat.isBanned = false
-                if (!('welcome' in chat))
-                    chat.welcome = true
-                if (!('detect' in chat))
-                    chat.detect = false
-                if (!('sWelcome' in chat))
-                    chat.sWelcome = ''
-                if (!('sBye' in chat))
-                    chat.sBye = ''
-                if (!('sPromote' in chat))
-                    chat.sPromote = ''
-                if (!('sDemote' in chat))
-                    chat.sDemote = ''
-                if (!('delete' in chat))
-                    chat.delete = true
-                if (!('antiLink' in chat))
-                    chat.antiLink = true
-                if (!('viewonce' in chat))
-                    chat.viewonce = false
-                if (!('antiToxic' in chat))
-                    chat.antiToxic = false
-                if (!('simi' in chat))
-                    chat.simi = false
-                if (!('nsfw' in chat))
-                    chat.nsfw = false
-                if (!('premnsfw' in chat))
-                    chat.premnsfw = false
-                if (!isNumber(chat.expired))
-                    chat.expired = 0
+                if (!('antiDelete' in chat)) chat.antiDelete = false
+                if (!('antiLink' in chat)) chat.antiLink = false
+                if (!('antiSticker' in chat)) chat.antiSticker = false
+                if (!('antiToxic' in chat)) chat.antiToxic = false
+                if (!('delete' in chat)) chat.delete = false
+                if (!('detect' in chat)) chat.detect = false
+                if (!('getmsg' in chat)) chat.getmsg = true
+                if (!('isBanned' in chat)) chat.isBanned = false
+                if (!('lastAnime' in chat)) chat.lastAnime = true
+                if (!('latestNews' in chat)) chat.latestNews = true
+                if (!('nsfw' in chat)) chat.nsfw = false
+                if (!('premium' in chat)) chat.premium = false
+                if (!('premiumTime' in chat)) chat.premiumTime = false
+                if (!('premnsfw' in chat)) chat.premnsfw = false
+                if (!('sBye' in chat)) chat.sBye = ''
+                if (!('sDemote' in chat)) chat.sDemote = ''
+                if (!('simi' in chat)) chat.simi = false
+                if (!('sPromote' in chat)) chat.sPromote = ''
+                if (!('stiker' in chat)) chat.stiker = false
+                if (!('sWelcome' in chat)) chat.sWelcome = ''
+                if (!('useDocument' in chat)) chat.useDocument = false
+                if (!('viewonce' in chat)) chat.viewonce = false
+                if (!('viewOnce' in chat)) chat.viewOnce = false
+                if (!('welcome' in chat)) chat.welcome = true
+                if (!isNumber(chat.expired)) chat.expired = 0
             } else
                 global.db.data.chats[m.chat] = {
-                    isBanned: false,
-                    welcome: true,
-                    detect: false,
-                    sWelcome: '',
-                    sBye: '',
-                    sPromote: '',
-                    sDemote: '',
-                    delete: true,
-                    antiLink: true,
-                    viewonce: false,
-                    antiToxic: true,
-                    simi: false,
-                    expired: 0,
-                    nsfw: false,
-                    premnsfw: false,
+                    antiDelete: false,
+	                antiLink: false,
+	                antiSticker: false,
+	                antiToxic: false,
+	                delete: false,
+	                detect: false,
+	                expired: 0,
+	                getmsg: true,
+	                isBanned: false,
+	                lastAnime: true,
+	                latestNews: true,
+	                nsfw: false,
+	                premium: false,
+	                premiumTime: false,
+	                premnsfw: false,
+	                sBye: '',
+	                sDemote: '',
+	                simi: false,
+	                sPromote: '',
+	                stiker: false,
+	                sWelcome: '',
+	                useDocument: false,
+	                viewOnce: false,
+	                viewonce: false,
+	                welcome: true,
                 }
         
             let settings = global.db.data.settings[this.user.jid]
@@ -758,15 +763,9 @@ global.dfail = (type, m, conn) => {
         admin: '*ᴏɴʟʏ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ',
         botAdmin: '*ᴏɴʟʏ ʙᴏᴛ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ ᴋᴇᴛɪᴋᴀ ʙᴏᴛ ᴍᴇɴᴊᴀᴅɪ ᴀᴅᴍɪɴ',
         restrict: '*ʀᴇsᴛʀɪᴄᴛ* • ʀᴇsᴛʀɪᴄᴛ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴅɪᴄʜᴀᴛ ɪɴɪ',
-    }[type]
-    if (msg) return conn.reply(m.chat, msg, false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaUrl: sig,
-title: wm,
-body: titlebot,
-sourceUrl: sig
-  }
- } 
-})
+    }[    }[type]
+    if (msg) return conn.reply(m.chat, msg, m, { contextInfo: { externalAdReply: {title: global.wm, body: '404 Access denied ✘', sourceUrl: global.sgc, thumbnail: fs.readFileSync('./thumbnail.jpg') }}})
+    
     let msgg = {
     	unreg: 'ʜᴀʟʟᴏ ᴋᴀᴋ ! 👋\nᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ ᴅᴜʟᴜ sᴇʙᴇʟᴜᴍ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ\n\n➞ ᴋʟɪᴄᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ'
 }[type]
